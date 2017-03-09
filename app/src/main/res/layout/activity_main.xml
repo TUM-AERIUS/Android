@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/all"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="michaelblind.aeriusapp.MainActivity"
+    android:background="#1a2327">
+
+    <TextView
+        android:id="@+id/output"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="10dp"/>
+
+    <View
+        android:id="@+id/pointer0"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/circle_accent"/>
+    <View
+        android:id="@+id/pointer1"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/circle_accent"/>
+    <View
+        android:id="@+id/pointer2"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/circle_accent"/>
+    <View
+        android:id="@+id/pointer3"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/circle_accent"/>
+    <View
+        android:id="@+id/pointer4"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/circle_accent"/>
+    <View
+        android:id="@+id/pointer5"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/circle_accent"/>
+    <View
+        android:id="@+id/pointer6"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/circle_accent"/>
+    <View
+        android:id="@+id/pointer7"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/circle_accent"/>
+    <View
+        android:id="@+id/pointer8"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/circle_accent"/>
+    <View
+        android:id="@+id/pointer9"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/circle_accent"/>
+
+
+    <ImageView
+        android:id="@+id/car"
+        android:layout_width="60dp"
+        android:layout_height="100dp"
+        android:layout_centerInParent="true"
+        android:background="#eee"/>
+
+</RelativeLayout>
