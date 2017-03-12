@@ -144,9 +144,9 @@ public class MainActivity extends AppCompatActivity {
         return in;
     }
 
-    private void print (float velocity, float steering) {
+    private void print (float v, float s) {
         TextView status = (TextView) findViewById(R.id.output);
-        status.setText(String.format("%.0f%%  %.0f°", velocity, steering));
+        status.setText(String.format("%.0f%%  %.0f°", v, s));
     }
-    private void send  (float velocity, float steering) {new TransmissionTask(velocity, steering).execute();}
+    private void send  (float v, float s) {new TransmissionTask((int) v, (int) s).execute();}
 }
