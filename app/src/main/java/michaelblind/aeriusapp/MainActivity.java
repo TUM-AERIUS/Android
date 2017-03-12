@@ -9,8 +9,10 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    int DOWN = 0;
-    int MOVE = 2;
+    private static final float EDGE = 200;
+    private static final int DOWN = 0;
+    private static final int MOVE = 2;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,19 +23,20 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         int action  = MotionEventCompat.getActionMasked(event);
-        if (action != DOWN && action != MOVE)
-            return super.onTouchEvent(event);
 
+        //Check if Event is Touch or Swipe
+        if (action == DOWN || action == MOVE)
+            handle(event);
+
+        return super.onTouchEvent(event);
+    }
+
+    private void handle(MotionEvent event) {
         float x = event.getX();
         float y = event.getY();
 
-        View field = findViewById(R.id.all);
-
-        float[] movement = transmit(x, y, field, getCar().getHeight() * 0.5f);
-
+        float[] movement = transmit(x, y, getCar());
         setPointers(movement);
-
-        return super.onTouchEvent(event);
     }
 
     private void setPointers(float[] movement) {
@@ -45,15 +48,15 @@ public class MainActivity extends AppCompatActivity {
         float sY = car.getY() - 0.5f * pointers[0].getHeight();
 
         if (movement[0] <  0) sY += car.getHeight();
-        if (movement[0] == 0) sY = car.getY();
+        if (movement[0] == 0) sY  = car.getY();
 
 
         float step = car.getHeight() * 0.225f;
 
         if (movement[0] < 0) step *= -1;
 
-        float[] start = new float[]{sX, sY};
-        float[][] dest = triangulateLocations(start, step, movement[1]);
+        float[]   start = new float[]{sX, sY};
+        float[][] dest  = triangulateLocations(start, step, movement[1]);
 
         drawPointers(pointers, dest, movement[0]);
     }
@@ -110,24 +113,40 @@ public class MainActivity extends AppCompatActivity {
                 };
     }
 
-    private float[] transmit(float x, float y, View field, float y_car) {
-        float y_center = (float) field.getHeight() / 2.0f;
-        float x_center = (float) field.getWidth() / 2.0f;
+    private float[] transmit(float x, float y, View car) {
+        float y_total = car.getY() - EDGE;
+        float x_total = car.getX() - EDGE;
 
-        float x_abs = x - x_center;
-        float y_abs = y - y_center;
+        float y_delta = delta(y, car.getY(), car.getHeight());
+        float x_delta = delta(x, car.getX(), car.getWidth());
 
-        //Check if inside Car
-        if (Math.abs(y_abs) <= y_car) y_abs = 0;
+        float velocity = absMin(y_delta, y_total) * 100f / y_total; //100f: Conversion to Percentage
+        float steering = absMin(x_delta, x_total) *  40f / x_total; // 40f: Conversion to 80° Field
 
-        float velocity = y_abs * (-100.0f) / y_center;
-        float steering = x_abs * (-40.0f)  / x_center;  //40.0: Conversion to 80° Field
-
-
-        TextView status = (TextView) findViewById(R.id.output);
-        status.setText(String.format("%.1f%%  %.1f°", velocity, steering));
+        print (velocity, steering);
+        send  (velocity, steering);
 
         return new float[]{velocity, steering};
     }
 
+    private float delta(float z, float pos, float dim) {
+        float tot = pos + dim;
+
+        if (z < pos) return pos - z;
+        if (z > tot) return tot - z;
+        return 0;
+    }
+
+    /** @return out from {in; max; -max}: -max <= out <= max */
+    private float absMin(float in, float max) {
+        if (in >  max) return  max;
+        if (in < -max) return -max;
+        return in;
+    }
+
+    private void print (float velocity, float steering) {
+        TextView status = (TextView) findViewById(R.id.output);
+        status.setText(String.format("%.0f%%  %.0f°", velocity, steering));
+    }
+    private void send  (float velocity, float steering) {new TransmissionTask(velocity, steering).execute();}
 }
