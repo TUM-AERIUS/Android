@@ -13,8 +13,10 @@ import java.net.Socket;
 /** Created by Michael on 3/11/2017. */
 public class TransmissionTask extends AsyncTask<Void, Void, Void> {
     JSONObject message;
+    Socket socket;
 
-    public TransmissionTask(int velocity, int steering) {
+    public TransmissionTask(int velocity, int steering, Socket socket) {
+        this.socket = socket;
         try {setMessage(velocity, steering);}
         catch (JSONException e) {e.printStackTrace();}
     }
@@ -28,11 +30,9 @@ public class TransmissionTask extends AsyncTask<Void, Void, Void> {
     @Override
     protected Void doInBackground(Void... voids) {
 
-        Socket socket = null;
         DataOutputStream out = null;
 
         try {
-            socket = new Socket("IP", 0); //ToDo: Insert Real Values
             out = new DataOutputStream(socket.getOutputStream());
             out.writeUTF(message.toString());
         } catch (IOException e) {print(e);}
@@ -40,6 +40,8 @@ public class TransmissionTask extends AsyncTask<Void, Void, Void> {
             if (out    != null) close(out);
             if (socket != null) close(socket);
         }
+
+        System.out.println("Sent");
 
         return null;
     }

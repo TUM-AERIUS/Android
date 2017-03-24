@@ -7,17 +7,21 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
 
+import java.net.Socket;
+
 public class MainActivity extends AppCompatActivity {
 
     private static final float EDGE = 200;
     private static final int DOWN = 0;
     private static final int MOVE = 2;
 
+    static Socket socket;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setSocket();
     }
 
     @Override
@@ -148,5 +152,11 @@ public class MainActivity extends AppCompatActivity {
         TextView status = (TextView) findViewById(R.id.output);
         status.setText(String.format("%.0f%%  %.0f°", v, s));
     }
-    private void send  (float v, float s) {new TransmissionTask((int) v, (int) s).execute();}
+    private void send  (float v, float s) {
+        if (socket == null) setSocket();
+        new TransmissionTask((int) v, (int) s, socket).execute();
+    }
+
+    private void setSocket() {new SocketConnectTask().execute();}
+
 }
