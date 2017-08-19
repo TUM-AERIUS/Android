@@ -23,69 +23,122 @@
         android:id="@+id/pointer0"
         android:layout_width="12dp"
         android:layout_height="12dp"
-        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="150dp"
         android:background="@drawable/circle_accent"/>
     <View
         android:id="@+id/pointer1"
         android:layout_width="12dp"
         android:layout_height="12dp"
-        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="150dp"
         android:background="@drawable/circle_accent"/>
     <View
         android:id="@+id/pointer2"
         android:layout_width="12dp"
         android:layout_height="12dp"
-        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="150dp"
         android:background="@drawable/circle_accent"/>
     <View
         android:id="@+id/pointer3"
         android:layout_width="12dp"
         android:layout_height="12dp"
-        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="150dp"
         android:background="@drawable/circle_accent"/>
     <View
         android:id="@+id/pointer4"
         android:layout_width="12dp"
         android:layout_height="12dp"
-        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="150dp"
         android:background="@drawable/circle_accent"/>
     <View
         android:id="@+id/pointer5"
         android:layout_width="12dp"
         android:layout_height="12dp"
-        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="150dp"
         android:background="@drawable/circle_accent"/>
     <View
         android:id="@+id/pointer6"
         android:layout_width="12dp"
         android:layout_height="12dp"
-        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="150dp"
         android:background="@drawable/circle_accent"/>
     <View
         android:id="@+id/pointer7"
         android:layout_width="12dp"
         android:layout_height="12dp"
-        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="150dp"
         android:background="@drawable/circle_accent"/>
     <View
         android:id="@+id/pointer8"
         android:layout_width="12dp"
         android:layout_height="12dp"
-        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="150dp"
         android:background="@drawable/circle_accent"/>
     <View
         android:id="@+id/pointer9"
         android:layout_width="12dp"
         android:layout_height="12dp"
-        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="150dp"
         android:background="@drawable/circle_accent"/>
-
+    <View
+        android:id="@+id/pointer10"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="150dp"
+        android:background="@drawable/circle_accent"/>
+    <View
+        android:id="@+id/pointer11"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="150dp"
+        android:background="@drawable/circle_accent"/>
+    <View
+        android:id="@+id/pointer12"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="150dp"
+        android:background="@drawable/circle_accent"/>
+    <View
+        android:id="@+id/pointer13"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="150dp"
+        android:background="@drawable/circle_accent"/>
 
     <ImageView
         android:id="@+id/car"
         android:layout_width="60dp"
         android:layout_height="100dp"
-        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="150dp"
         android:background="#eee"/>
 
 </RelativeLayout>
